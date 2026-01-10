@@ -133,9 +133,17 @@ if clave_sorteo == ADMIN_PASSWORD:
         if len(participantes) < 2:
             st.warning("Se necesitan al menos 2 participantes")
         else:
+            # 1️⃣ Elegir ganador
             ganador = random.choice(participantes)
             st.session_state.sorteo_realizado = True
 
+            # 2️⃣ Guardar ganador en Supabase
+            supabase.table("ganadores").insert({
+                "participante_id": ganador["id"],
+                "instagram": ganador["instagram"]
+            }).execute()
+
+            # 3️⃣ Mostrar ganador
             st.success(
                 f"""
 🏆 **GANADOR/A**
@@ -146,6 +154,7 @@ if clave_sorteo == ADMIN_PASSWORD:
 📍 {ganador['provincia']}
 """
             )
+
 elif clave_sorteo:
     st.error("❌ Contraseña incorrecta")
 
