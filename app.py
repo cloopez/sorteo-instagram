@@ -144,7 +144,6 @@ if ganador_guardado:
 
     st.info("🔒 El sorteo ya fue realizado y no puede repetirse.")
 
-
 # --------------------------------
 # SORTEO
 # --------------------------------
