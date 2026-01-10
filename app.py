@@ -122,15 +122,22 @@ else:
 # --------------------------------
 st.subheader("🎁 Sorteo")
 
-if st.button("🎲 Realizar sorteo"):
-    if len(participantes) < 2:
-        st.warning("Se necesitan al menos 2 participantes")
-    else:
-        ganador = random.choice(participantes)
-        st.session_state.sorteo_realizado = True
+clave_sorteo = st.text_input(
+    "Contraseña para realizar el sorteo",
+    type="password",
+    key="clave_sorteo"
+)
 
-        st.success(
-            f"""
+if clave_sorteo == ADMIN_PASSWORD:
+    if st.button("🎲 Realizar sorteo"):
+        if len(participantes) < 2:
+            st.warning("Se necesitan al menos 2 participantes")
+        else:
+            ganador = random.choice(participantes)
+            st.session_state.sorteo_realizado = True
+
+            st.success(
+                f"""
 🏆 **GANADOR/A**
 
 👤 {ganador['nombres']} {ganador['apellidos']}  
@@ -138,7 +145,9 @@ if st.button("🎲 Realizar sorteo"):
 📸 @{ganador['instagram']}  
 📍 {ganador['provincia']}
 """
-        )
+            )
+elif clave_sorteo:
+    st.error("❌ Contraseña incorrecta")
 
 # --------------------------------
 # ADMIN
