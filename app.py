@@ -116,6 +116,34 @@ if participantes:
     )
 else:
     st.info("Aún no hay participantes")
+    
+# --------------------------------
+# MOSTRAR GANADOR
+# --------------------------------
+if ganador_guardado:
+    st.subheader("🏆 Ganador del Sorteo")
+
+    participante = (
+        supabase
+        .table("participantes")
+        .select("*")
+        .eq("id", ganador_guardado["participante_id"])
+        .single()
+        .execute()
+        .data
+    )
+
+    st.success(
+        f"""
+👤 {participante['nombres']} {participante['apellidos']}  
+📱 {participante['telefono']}  
+📸 @{participante['instagram']}  
+📍 {participante['provincia']}
+"""
+    )
+
+    st.info("🔒 El sorteo ya fue realizado y no puede repetirse.")
+
 
 # --------------------------------
 # SORTEO
