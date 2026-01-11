@@ -155,7 +155,7 @@ clave_sorteo = st.text_input(
     key="clave_sorteo"
 )
 
-if clave_sorteo == ADMIN_PASSWORD:
+if clave_sorteo == ADMIN_PASSWORD and not ganador_guardado:
     if st.button("🎲 Realizar sorteo"):
         if len(participantes) < 2:
             st.warning("Se necesitan al menos 2 participantes")
