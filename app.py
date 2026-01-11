@@ -116,7 +116,14 @@ if participantes:
     )
 else:
     st.info("Aún no hay participantes")
-    
+
+# --------------------------------
+# GANADOR GUARDADO (si existe)
+# --------------------------------
+resp_ganador = supabase.table("ganadores").select("*").limit(1).execute()
+ganador_guardado = resp_ganador.data[0] if resp_ganador.data else None
+
+
 # --------------------------------
 # MOSTRAR GANADOR
 # --------------------------------
