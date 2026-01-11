@@ -17,74 +17,84 @@ st.set_page_config(
 # --------------------------------
 # FONDO + TEMA PROFESIONAL
 # --------------------------------
-def set_background():
+def set_dark_theme():
     st.markdown(
         """
         <style>
-        /* Fondo general */
+        /* Fondo total */
         .stApp {
-            background: linear-gradient(135deg, #0f172a, #020617);
+            background-color: #020617;
         }
 
         /* Contenedor principal */
         .block-container {
-            background-color: #ffffff;
+            background-color: #020617;
             padding: 3rem 3.5rem;
-            border-radius: 22px;
-            max-width: 720px;
-            margin-top: 3rem;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+            max-width: 750px;
+            margin-top: 2.5rem;
+        }
+
+        /* Tarjetas (simuladas) */
+        section[data-testid="stVerticalBlock"] > div {
+            background-color: #0f172a;
+            padding: 2rem;
+            border-radius: 18px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin-bottom: 2rem;
         }
 
         /* Títulos */
-        h1 {
-            text-align: center;
-            font-weight: 800;
-            color: #0f172a;
+        h1, h2, h3 {
+            color: #f8fafc;
+            font-weight: 700;
         }
 
-        h2, h3 {
-            color: #1e293b;
+        /* Texto general */
+        p, span, label {
+            color: #e5e7eb;
         }
 
         /* Inputs */
         input, textarea, select {
-            background-color: #f8fafc !important;
-            color: #0f172a !important;
+            background-color: #020617 !important;
+            color: #f8fafc !important;
             border-radius: 10px !important;
-            border: 1px solid #cbd5e1 !important;
+            border: 1px solid #334155 !important;
         }
 
-        /* Labels */
-        label {
-            font-weight: 600;
-            color: #334155;
+        /* Placeholders */
+        input::placeholder {
+            color: #94a3b8 !important;
         }
 
         /* Botones */
         .stButton > button {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: white;
-            font-weight: 700;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #022c22;
+            font-weight: 800;
             border-radius: 12px;
-            padding: 0.7rem 1.4rem;
+            padding: 0.7rem 1.6rem;
             border: none;
         }
 
         .stButton > button:hover {
-            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            background: linear-gradient(135deg, #16a34a, #15803d);
         }
 
-        /* Mensajes */
+        /* Alertas */
         .stAlert {
             border-radius: 12px;
+            background-color: #020617;
+            border: 1px solid #334155;
         }
+
         </style>
         """,
         unsafe_allow_html=True
     )
 
-set_background()
+set_dark_theme()
+
 
 # --------------------------------
 # CREDENCIALES
