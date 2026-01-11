@@ -17,51 +17,74 @@ st.set_page_config(
 # --------------------------------
 # FONDO + TEMA PROFESIONAL
 # --------------------------------
-def set_background(image_path):
+def set_background():
     st.markdown(
-        f"""
+        """
         <style>
-        .stApp {{
-            background-image: url("{image_path}");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
+        /* Fondo general */
+        .stApp {
+            background: linear-gradient(135deg, #0f172a, #020617);
+        }
 
-        .block-container {{
-            background-color: rgba(255, 255, 255, 0.94);
-            padding: 2.5rem;
-            border-radius: 18px;
-            max-width: 850px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }}
+        /* Contenedor principal */
+        .block-container {
+            background-color: #ffffff;
+            padding: 3rem 3.5rem;
+            border-radius: 22px;
+            max-width: 720px;
+            margin-top: 3rem;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+        }
 
-        h1, h2, h3 {{
-            color: #1f2937;
-        }}
+        /* Títulos */
+        h1 {
+            text-align: center;
+            font-weight: 800;
+            color: #0f172a;
+        }
 
-        label {{
+        h2, h3 {
+            color: #1e293b;
+        }
+
+        /* Inputs */
+        input, textarea, select {
+            background-color: #f8fafc !important;
+            color: #0f172a !important;
+            border-radius: 10px !important;
+            border: 1px solid #cbd5e1 !important;
+        }
+
+        /* Labels */
+        label {
             font-weight: 600;
-        }}
+            color: #334155;
+        }
 
-        .stButton button {{
-            background-color: #2563eb;
+        /* Botones */
+        .stButton > button {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: white;
-            border-radius: 10px;
-            padding: 0.6rem 1.2rem;
-            font-weight: 600;
-        }}
+            font-weight: 700;
+            border-radius: 12px;
+            padding: 0.7rem 1.4rem;
+            border: none;
+        }
 
-        .stButton button:hover {{
-            background-color: #1e40af;
-        }}
+        .stButton > button:hover {
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+        }
+
+        /* Mensajes */
+        .stAlert {
+            border-radius: 12px;
+        }
         </style>
         """,
         unsafe_allow_html=True
     )
 
-set_background("assets/fondo.jpg")
+set_background()
 
 # --------------------------------
 # CREDENCIALES
